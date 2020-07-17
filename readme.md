@@ -1,4 +1,4 @@
-#Resume Registry
+# Resume Registry
 
 This project was part of course taken on coursera, JavaScript by University of Michigan. 
 
