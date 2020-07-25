@@ -93,12 +93,27 @@ if( isset($_POST['email']) ) {
 <div class="container">
 <h1>Please Log In</h1>
 <form method="POST" action="login.php">
-<label for="email">Email</label>
-<input type="text" name="email" id="email"><br/>
-<label for="id_1723">Password</label>
-<input type="password" name="pass" id="id_1723"><br/><br/>
-<input type="submit" onclick="return doValidate();" value="Log In">
-<input type="submit" name="cancel" value="Cancel">
+<table style="width:30%; border:none">
+  <tr>
+    <th><br/><label for="email">Email</label></th>
+    <th><input type="text" name="email" id="email"><br/></th>
+  </tr>
+  <tr>
+    <td><br/><label for="id_1723">Password</label></td>
+    <td><input type="password" name="pass" id="id_1723"><br/></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><br/><input type="submit" onclick="return doValidate();" value="Log In">
+    <input type="submit" name="cancel" value="Cancel"></td>
+  </tr>
+</table>
+
+
+
+
+
+
 </form>
 <br>
 <p>
