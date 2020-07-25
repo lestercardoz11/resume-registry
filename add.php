@@ -83,7 +83,7 @@ if (isset($_POST['add'])) {
         );
 
         $rank++;
-    }
+        }
   
     } catch( Exception $ex ){
         echo("Internal error, please contact support");
@@ -118,7 +118,7 @@ function validatePos() {
 
 <html>
 <head>
-<title>Add Profile</title>
+<title>Lester Cardoz - Add Profile</title>
 <link rel="stylesheet" 
     href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" 
     integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" 
@@ -190,7 +190,6 @@ $(document).ready(function(){
     });
 });
 </script>
-</form>
 </div>
 </body>
 </html>

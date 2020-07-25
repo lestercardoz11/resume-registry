@@ -79,7 +79,7 @@ if( isset($_POST['email']) ) {
 
 <html>
 <head>
-<title>Login Page</title>
+<title>Lester Cardoz - Login Page</title>
 <!-- bootstrap.php - this is HTML -->
 
 <!-- Latest compiled and minified CSS -->

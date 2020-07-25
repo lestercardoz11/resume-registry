@@ -16,7 +16,7 @@ session_start();
     integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" 
     crossorigin="anonymous">
 
-	<title>Resume Registry </title>
+	<title>Lester Cardoz - Resume Registry </title>
 </head>
 
 <body>
