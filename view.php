@@ -48,14 +48,19 @@ require_once('pdo.php');
                 echo '<p><b> Summary: </b><br>'.$row['summary'].'<p>';
             }
 
-            $stmt1 = $pdo->query( 
-                'SELECT `year`, `description` FROM position WHERE profile_id = '.$_GET['profile_id'] );
-            if( $stmt1->rowCount() === 0 ){
+            $stmt1 = $pdo->prepare( 
+                'SELECT * FROM Position WHERE profile_id = :prof ORDER BY rank');
+                $stmt1->execute(array( ':prof' => $_GET['profile_id']));
+            
+                if( $stmt1->rowCount() === 0 ){
                 echo '<p> Wrong profile id </p>';
-            } else {
-                $row1 = $stmt1->fetch(PDO::FETCH_ASSOC);
-                echo '<p><b> Position: </b><p>';
-                echo '<ul><li>'.$row1['year'].': '.$row1['description'].'</li></ul>';
+                } else {
+                echo '<p><b> Position: </b><p><ul>';
+                while ( $row1 = $stmt1->fetch(PDO::FETCH_ASSOC)){
+                    echo '<li>'.$row1['year'].': '.$row1['description'].'</li>';
+                }
+                echo '</ul>';
+                
             }
 			?>
         </div>

@@ -4,8 +4,8 @@
 require_once "pdo.php";
 session_start();
 
-if( ! isset($_SESSION['name']) ){
-    die("Not logged in");
+if( ! isset($_SESSION['user_id']) ){
+    die("ACCESS DENIED");
     header('Location: index.php');
     return;
 }
