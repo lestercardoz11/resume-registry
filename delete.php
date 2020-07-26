@@ -1,7 +1,8 @@
 <!DOCTYPE HTML>
 
 <?php
-require_once "pdo.php";
+require_once('pdo.php');
+require_once('header.php');
 session_start();
 
 if( ! isset($_SESSION['name']) ){
@@ -53,18 +54,6 @@ $last_name = htmlentities( $row['last_name']);
 
 ?>
 
-<html>
-<head>
-<title>Lester Cardoz's Profile Delete</title>
-<!-- bootstrap.php - this is HTML -->
-
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" 
-    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" 
-    integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" 
-    crossorigin="anonymous">
-
-</head>
 <body>
 <div class="container">
 <h1>Delete Profile</h1>
@@ -79,4 +68,6 @@ $last_name = htmlentities( $row['last_name']);
 
 </div>
 </body>
-</html>
+<?php
+include('footer.php');
+?>

@@ -1,21 +1,15 @@
-<!DOCTYPE HTML>
-
 <?php
 require_once('pdo.php');
+require_once('header.php');
+require_once('util.php');
+
+//load up the position rows
+$positions = loadPos($pdo, $_REQUEST['profile_id']);
+
+//load up the education rows
+$educations = loadEdu($pdo, $_REQUEST['profile_id']);
+
 ?>
-
-<html lang='en'>
-
-<head>
-	<meta charset='UTF-8'>
-	
-    <link rel="stylesheet" 
-    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" 
-    integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" 
-    crossorigin="anonymous">
-
-	<title>Lester Cardoz - Resume Registry </title>
-</head>
 
 <body>
 	<div class='container'>
@@ -29,7 +23,7 @@ require_once('pdo.php');
             if( isset($_POST['done']) ){
                 header('Location: index.php');
                 return;
-}
+            }
 
             // Get and show profile basic info.
 
@@ -48,20 +42,17 @@ require_once('pdo.php');
                 echo '<p><b> Summary: </b><br>'.$row['summary'].'<p>';
             }
 
-            $stmt1 = $pdo->prepare( 
-                'SELECT * FROM Position WHERE profile_id = :prof ORDER BY rank');
-                $stmt1->execute(array( ':prof' => $_GET['profile_id']));
-            
-                if( $stmt1->rowCount() === 0 ){
-                echo '<p> Wrong profile id </p>';
-                } else {
-                echo '<p><b> Position: </b><p><ul>';
-                while ( $row1 = $stmt1->fetch(PDO::FETCH_ASSOC)){
-                    echo '<li>'.$row1['year'].': '.$row1['description'].'</li>';
-                }
-                echo '</ul>';
-                
+            echo '<p><b>Position Year: </b></p><ul>';
+            foreach ($positions as $position) {
+                echo '<li>'.htmlspecialchars($position['year']).': '.htmlspecialchars($position['description']).'</li>';
             }
+            echo '</ul>';
+
+            echo '<p><b>Education Year: </b></p><ul>';
+            foreach ($educations as $education) {
+                echo '<li>'.htmlspecialchars($education['year']).': '.htmlspecialchars($education['name']).'</li>';
+            }
+            echo '</ul>';
 			?>
         </div>
         <form method="POST">
@@ -69,4 +60,6 @@ require_once('pdo.php');
         </form>
 	</div>
 </body>
-</html>
+<?php
+include('footer.php');
+?>
