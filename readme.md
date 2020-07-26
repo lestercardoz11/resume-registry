@@ -1,6 +1,7 @@
-#Resume Registry
+# Resume Registry
 
 This project was part of course taken on coursera, JavaScript by University of Michigan. 
+
 
 To get started run the following SQL commands in phpmyadmin:
 
@@ -35,6 +36,7 @@ CREATE TABLE Profile (
   REFERENCES users (user_id)
   ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 INSERT INTO users (name,email,password) VALUES ('UMSI','umsi@umich.edu','1a52e17fa899cf40fb04cfc42e6352f1');
   
